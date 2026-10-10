@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "service": "echo-bot-claude",
+  "version": "0.1.0",
+  "at": "2026-10-10T22:56:51.269Z",
+  "model": "@cf/meta/llama-3.1-8b-instruct-fp8-fast",
+  "source": "https://raw.githubusercontent.com/AGI144348Outlook/Echo_Green_Future/research-discourse-registry/research-registry/contracts/CONTRACT-000.md",
+  "source_chars": 6000,
+  "usage": {
+    "prompt_tokens": 1355,
+    "completion_tokens": 190,
+    "measured": true
+  },
+  "neurons_spent": 12.2,
+  "budget": {
+    "day": "2026-10-10",
+    "used": 25,
+    "cap": 4500
+  },
+  "evidence": "EXECUTION-VERIFIED run; summary content is model output, unverified",
+  "summary": "Here are 5 key points summarizing the main purpose and rules of this contract excerpt:\n\n* The contract, called \"Contract 000 — The Mirroring Children,\" establishes a continuous process for mirroring a main repository and developing personal libraries and branches.\n* Each participant (Claude, ChatGPT, and Timothy) receives an inert skeleton of the main repository and develops their own \"Mirroring Child\" with their own personal library and branches.\n* The contract requires a \"Library-first sequencing\" approach, where each participant must inventory and prune the main repository's Code Library before populating their own personal library and branches.\n* The contract involves recursive return reviews, where participants must review and update their shared library to ensure recoverability and source provenance.\n* The contract never ends, and Contract 001 may begin once Contract 000 is \"running,\" with both Mirroring Children having completed the mandatory Library-first sequence and mirror inventory/population stages."
+}
