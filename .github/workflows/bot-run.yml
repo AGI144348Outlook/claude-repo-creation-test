@@ -3,9 +3,18 @@ name: echo-bot-claude run
 # Each run asks echo-bot-claude to think once (its own budget and cooldown apply), then
 # commits the result and a log line to the orphan branch `bot-claude-runs` using the
 # built-in token. The bot itself never holds GitHub write access.
-# Schedule: manual only until Timothy approves the hourly schedule.
+# Triggers (Contract 000 §27): the watcher (C-003 contract changed, C-004 Echo changed),
+# Timothy's `run:claude` label on an Issue in this repo (C-005), or a manual run.
+# Budget and cooldown in the bot still apply to every trigger.
 on:
   workflow_dispatch:
+    inputs:
+      reason:
+        description: "Why this run happened"
+        required: false
+        default: "manual"
+  issues:
+    types: [labeled]
 permissions:
   contents: write
 concurrency:
@@ -13,12 +22,16 @@ concurrency:
   cancel-in-progress: false
 jobs:
   run:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.label.name == 'run:claude' && github.event.sender.login == github.repository_owner)
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
       BOT_URL: https://echo-bot-claude.agi144348.workers.dev
       RUNS_BRANCH: bot-claude-runs
       DEST_URL: https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git
+      REASON: ${{ github.event_name == 'issues' && format('C-005 label on issue #{0}', github.event.issue.number) || inputs.reason || 'manual' }}
     steps:
       - name: Ask the bot to think once
         id: think
@@ -62,20 +75,26 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git remote add origin "$DEST_URL"
-          if git fetch -q --depth 1 origin "$RUNS_BRANCH" 2>/dev/null; then
-            git checkout -q -B "$RUNS_BRANCH" FETCH_HEAD
-          else
-            git checkout -q --orphan "$RUNS_BRANCH"
-            printf '# bot-claude-runs\n\nResults of echo-bot-claude runs, committed by the `echo-bot-claude run` workflow. Model output is unverified data (Contract 000 §15.2).\n\n| Run (UTC) | HTTP | Status | File |\n|---|---|---|---|\n' > RUN-LOG.md
-          fi
-          file="-"
-          if [ "$OK" = "true" ]; then
-            mkdir -p "runs/$day"
-            file="runs/$day/$stamp.json"
-            cp ../think.json "$file"
-          fi
-          echo "| $stamp | $HTTP | $STATUS | $file |" >> RUN-LOG.md
-          git add -A
-          git commit -q -m "bot run $stamp: $STATUS"
-          git push -q origin "HEAD:refs/heads/$RUNS_BRANCH"
-          echo "Committed $stamp ($STATUS) to $RUNS_BRANCH"
+          safe_reason="$(printf '%s' "$REASON" | tr -cd 'A-Za-z0-9 .;:#_-' | cut -c1-80)"
+          for attempt in 1 2 3 4; do
+            if git fetch -q --depth 1 origin "$RUNS_BRANCH" 2>/dev/null; then
+              git checkout -q -f -B "$RUNS_BRANCH" FETCH_HEAD
+            else
+              git checkout -q -f --orphan "$RUNS_BRANCH"; git rm -rq --cached . 2>/dev/null || true
+            fi
+            if [ ! -f RUN-LOG.md ]; then
+              printf '# bot-claude-runs\n\nResults of echo-bot-claude runs, committed by the `echo-bot-claude run` workflow. Model output is unverified data (Contract 000 §15.2).\n\n| Run (UTC) | HTTP | Status | File |\n|---|---|---|---|\n' > RUN-LOG.md
+            fi
+            file="-"
+            if [ "$OK" = "true" ]; then
+              mkdir -p "runs/$day"
+              file="runs/$day/$stamp.json"
+              cp ../think.json "$file"
+            fi
+            echo "| $stamp | $HTTP | $STATUS ($safe_reason) | $file |" >> RUN-LOG.md
+            git add -A
+            git commit -q -m "bot run $stamp: $STATUS ($safe_reason)"
+            if git push -q origin "HEAD:refs/heads/$RUNS_BRANCH"; then echo "Committed $stamp ($STATUS) to $RUNS_BRANCH"; exit 0; fi
+            echo "Push collided (attempt $attempt); retrying."; sleep $((attempt * 3))
+          done
+          echo "Could not commit after 4 attempts."; exit 1

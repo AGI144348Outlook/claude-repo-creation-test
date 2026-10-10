@@ -1,0 +1,91 @@
+name: echo-bot-claude watcher
+# Contract 000 §27 (Conditions C-003, C-004). Checks every 5 minutes, with no AI and no
+# neurons, whether Contract 000 or Echo's main has changed since it last looked.
+# Only when something changed does it wake the bot (and, for Echo, refresh the mirror).
+# Last-seen commits are kept in WATCH-STATE.json on the `bot-claude-runs` branch.
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: bot-claude-watcher
+  cancel-in-progress: false
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    env:
+      GH_TOKEN: ${{ github.token }}
+      UPSTREAM: AGI144348Outlook/Echo_Green_Future
+      CONTRACT_BRANCH: research-discourse-registry
+      CONTRACT_PATH: research-registry/contracts/CONTRACT-000.md
+      RUNS_BRANCH: bot-claude-runs
+      DEST_URL: https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git
+    steps:
+      - name: Compare current commits with last seen
+        id: cmp
+        shell: bash
+        run: |
+          set -euo pipefail
+          contract="$(gh api "repos/$UPSTREAM/commits?sha=$CONTRACT_BRANCH&path=$CONTRACT_PATH&per_page=1" --jq '.[0].sha')"
+          echo_main="$(git ls-remote "https://github.com/$UPSTREAM" refs/heads/main | cut -f1)"
+          [[ "$contract" =~ ^[0-9a-f]{40}$ && "$echo_main" =~ ^[0-9a-f]{40}$ ]] || { echo "Could not read upstream commits; skipping."; exit 0; }
+
+          git init -q state && cd state
+          git remote add origin "$DEST_URL"
+          prev_contract=""; prev_echo=""
+          if git fetch -q --depth 1 origin "$RUNS_BRANCH" 2>/dev/null && git cat-file -e FETCH_HEAD:WATCH-STATE.json 2>/dev/null; then
+            prev_contract="$(git show FETCH_HEAD:WATCH-STATE.json | python3 -c 'import json,sys;print(json.load(sys.stdin).get("contract",""))')"
+            prev_echo="$(git show FETCH_HEAD:WATCH-STATE.json | python3 -c 'import json,sys;print(json.load(sys.stdin).get("echo_main",""))')"
+          fi
+          c_changed=false; e_changed=false
+          [ -n "$prev_contract" ] && [ "$contract" != "$prev_contract" ] && c_changed=true
+          [ -n "$prev_echo" ] && [ "$echo_main" != "$prev_echo" ] && e_changed=true
+          first_run=false; [ -z "$prev_contract$prev_echo" ] && first_run=true
+          {
+            echo "contract=$contract"; echo "echo_main=$echo_main"
+            echo "contract_changed=$c_changed"; echo "echo_changed=$e_changed"; echo "first_run=$first_run"
+          } >> "$GITHUB_OUTPUT"
+          echo "contract ${contract:0:7} (changed: $c_changed) | echo main ${echo_main:0:7} (changed: $e_changed) | first run: $first_run"
+
+      - name: Refresh the Echo mirror (C-004)
+        if: steps.cmp.outputs.echo_changed == 'true'
+        run: gh workflow run mirror-echo.yml -R "$GITHUB_REPOSITORY" --ref main
+
+      - name: Wake the bot
+        if: steps.cmp.outputs.contract_changed == 'true' || steps.cmp.outputs.echo_changed == 'true'
+        env:
+          C: ${{ steps.cmp.outputs.contract_changed }}
+          E: ${{ steps.cmp.outputs.echo_changed }}
+          CSHA: ${{ steps.cmp.outputs.contract }}
+          ESHA: ${{ steps.cmp.outputs.echo_main }}
+        run: |
+          set -euo pipefail
+          reason=""
+          [ "$C" = "true" ] && reason="C-003 contract ${CSHA:0:7}"
+          [ "$E" = "true" ] && reason="${reason:+$reason; }C-004 echo ${ESHA:0:7}"
+          gh workflow run bot-run.yml -R "$GITHUB_REPOSITORY" --ref main -f reason="$reason"
+          echo "Woke the bot: $reason"
+
+      - name: Record what was seen
+        if: steps.cmp.outputs.first_run == 'true' || steps.cmp.outputs.contract_changed == 'true' || steps.cmp.outputs.echo_changed == 'true'
+        env:
+          CSHA: ${{ steps.cmp.outputs.contract }}
+          ESHA: ${{ steps.cmp.outputs.echo_main }}
+        run: |
+          set -euo pipefail
+          cd state
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for attempt in 1 2 3 4; do
+            if git fetch -q --depth 1 origin "$RUNS_BRANCH" 2>/dev/null; then git checkout -q -f -B "$RUNS_BRANCH" FETCH_HEAD; else git checkout -q -f --orphan "$RUNS_BRANCH"; git rm -rq --cached . 2>/dev/null || true; fi
+            printf '{\n  "contract": "%s",\n  "echo_main": "%s",\n  "seen_at": "%s"\n}\n' "$CSHA" "$ESHA" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > WATCH-STATE.json
+            git add WATCH-STATE.json
+            git commit -q -m "watcher: seen contract ${CSHA:0:7}, echo ${ESHA:0:7}"
+            if git push -q origin "HEAD:refs/heads/$RUNS_BRANCH"; then echo "State recorded."; exit 0; fi
+            echo "Push collided (attempt $attempt); retrying."; sleep $((attempt * 3))
+          done
+          echo "Could not record state after 4 attempts."; exit 1
