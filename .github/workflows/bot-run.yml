@@ -31,7 +31,7 @@ jobs:
       BOT_URL: https://echo-bot-claude.agi144348.workers.dev
       RUNS_BRANCH: bot-claude-runs
       DEST_URL: https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git
-      REASON: ${{ github.event_name == 'issues' && format('C-005 label on issue #{0}', github.event.issue.number) || inputs.reason || 'manual' }}
+      REASON: ${{ github.event_name == 'issues' && format('C-005 label on issue {0}', github.event.issue.number) || inputs.reason || 'manual' }}
     steps:
       - name: Ask the bot to think once
         id: think
