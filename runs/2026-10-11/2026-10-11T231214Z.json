@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "service": "echo-bot-claude",
+  "version": "0.1.0",
+  "at": "2026-10-11T23:12:09.883Z",
+  "model": "@cf/meta/llama-3.1-8b-instruct-fp8-fast",
+  "source": "https://raw.githubusercontent.com/AGI144348Outlook/Echo_Green_Future/research-discourse-registry/research-registry/contracts/CONTRACT-000.md",
+  "source_chars": 6000,
+  "usage": {
+    "prompt_tokens": 1355,
+    "completion_tokens": 204,
+    "measured": true
+  },
+  "neurons_spent": 12.7,
+  "budget": {
+    "day": "2026-10-11",
+    "used": 25,
+    "cap": 4500
+  },
+  "evidence": "EXECUTION-VERIFIED run; summary content is model output, unverified",
+  "summary": "Here are the main purpose and rules of the contract excerpt in 5 bullet points:\n\n* The main purpose of the contract is to establish a framework for collaborative development and mirroring of a repository, with a focus on building and maintaining a shared library of code.\n* The contract requires each participant to receive an inert skeleton of the repository and develop their own \"Mirroring Child\" from it, with the first Code Library inventory and pruning pass being mandatory before populating the mirroring branch layer.\n* Participants must follow a specific sequencing and pick/prune process, with the Library-first gate being a mandatory step before inventorying or populating the mirroring branch layer.\n* The contract also requires participants to collaborate on their differences in the shared Library by contributing both collections into one whole, and to conduct recursive return reviews to ensure recoverability and source provenance.\n* The contract never finishes, with Contract 001 beginning once Contract 000 is \"running\" and the shared Library holds at least one merged contribution from each participant."
+}
