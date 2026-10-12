@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "service": "echo-bot-claude",
+  "version": "0.1.0",
+  "at": "2026-10-12T19:18:51.413Z",
+  "model": "@cf/meta/llama-3.1-8b-instruct-fp8-fast",
+  "source": "https://raw.githubusercontent.com/AGI144348Outlook/Echo_Green_Future/research-discourse-registry/research-registry/contracts/CONTRACT-000.md",
+  "source_chars": 6000,
+  "usage": {
+    "prompt_tokens": 1355,
+    "completion_tokens": 196,
+    "measured": true
+  },
+  "neurons_spent": 12.4,
+  "budget": {
+    "day": "2026-10-12",
+    "used": 12,
+    "cap": 4500
+  },
+  "evidence": "EXECUTION-VERIFIED run; summary content is model output, unverified",
+  "summary": "Here are 5 short bullet points summarizing the main purpose and rules of the contract excerpt:\n\n* The contract, known as Contract 000, is a standing agreement that establishes the framework for creating and maintaining a shared repository of code and data.\n* The contract requires three participants: Claude, ChatGPT, and Timothy, who work together to build and maintain the repository.\n* The participants must follow a specific sequence of steps, including inventorying and populating a shared Library, mirroring branches, and recursively reviewing and updating the shared Library.\n* The contract has several key rules, including the requirement that the Library be populated first, that each participant must document their pruning decisions, and that debates on Algorithm 000 must begin once the initial construction conditions are met.\n* The contract is designed to be ongoing, with each participant repeating the process through recursive return referencing reviews, and with the possibility of new contracts (Contract 001) being initiated once the initial conditions are met."
+}
