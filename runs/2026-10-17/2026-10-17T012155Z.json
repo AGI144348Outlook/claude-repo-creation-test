@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "service": "echo-bot-claude",
+  "version": "0.1.0",
+  "at": "2026-10-17T01:21:52.539Z",
+  "model": "@cf/meta/llama-3.1-8b-instruct-fp8-fast",
+  "source": "https://raw.githubusercontent.com/AGI144348Outlook/Echo_Green_Future/research-discourse-registry/research-registry/contracts/CONTRACT-000.md",
+  "source_chars": 6000,
+  "usage": {
+    "prompt_tokens": 1355,
+    "completion_tokens": 203,
+    "measured": true
+  },
+  "neurons_spent": 12.7,
+  "budget": {
+    "day": "2026-10-17",
+    "used": 13,
+    "cap": 4500
+  },
+  "evidence": "EXECUTION-VERIFIED run; summary content is model output, unverified",
+  "summary": "Here are 5 key points summarizing the main purpose and rules of this contract excerpt:\n\n* The purpose of Contract 000 is to establish a framework for building and maintaining a repository of code, with a focus on mirroring and collaboration between participants.\n* The contract requires each participant to create an inert skeleton of the repository, which they then develop into a \"Mirroring Child\" with their own unique features and contributions.\n* The contract has a mandatory sequence of steps, including a \"Library-first\" sequencing requirement, where each participant must complete a pick/prune pass on the Code Library before populating their own personal Library and mirroring branches.\n* Participants must collaborate on their differences in the Library sub-branches and contribute their collections into a shared Library, with Timothy acting as a referee to resolve any conflicts.\n* The contract is designed to be recursive, with participants repeating the process through mandatory Recursive Return Referencing Reviews, and Contract 000 never actually finishing, but rather continuing to evolve and improve over time."
+}
