@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "service": "echo-bot-claude",
+  "version": "0.1.0",
+  "at": "2026-10-18T21:36:37.304Z",
+  "model": "@cf/meta/llama-3.1-8b-instruct-fp8-fast",
+  "source": "https://raw.githubusercontent.com/AGI144348Outlook/Echo_Green_Future/research-discourse-registry/research-registry/contracts/CONTRACT-000.md",
+  "source_chars": 6000,
+  "usage": {
+    "prompt_tokens": 1355,
+    "completion_tokens": 181,
+    "measured": true
+  },
+  "neurons_spent": 11.9,
+  "budget": {
+    "day": "2026-10-18",
+    "used": 12,
+    "cap": 4500
+  },
+  "evidence": "EXECUTION-VERIFIED run; summary content is model output, unverified",
+  "summary": "Here are 5 main points summarizing the contract excerpt:\n\n* The contract, known as Contract 000, is a standing agreement between participants Timothy, Claude, and ChatGPT to create mirror versions of a repository.\n* Each participant receives an inert skeleton of the repository and develops their own \"Mirroring Child\" by populating their personal Library sub-branches and mirroring branches.\n* The Library-first sequencing rule requires participants to inventory and prune the main Repository's Code Library before populating their own personal Library and mirroring branches.\n* The shared Library is a collaborative effort where participants contribute their personal Library collections into one whole, with identical contributions merging automatically and differing versions flagged for Timothy's review.\n* The contract continues recursively through save++ reviews while debates on Algorithm 000 proceed, and Contract 001 may begin once Contract 000 is running and the shared Library holds merged contributions from each participant."
+}
