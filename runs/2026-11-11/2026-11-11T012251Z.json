@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "service": "echo-bot-claude",
+  "version": "0.1.0",
+  "at": "2026-11-11T01:22:48.717Z",
+  "model": "@cf/meta/llama-3.1-8b-instruct-fp8-fast",
+  "source": "https://raw.githubusercontent.com/AGI144348Outlook/Echo_Green_Future/research-discourse-registry/research-registry/contracts/CONTRACT-000.md",
+  "source_chars": 6000,
+  "usage": {
+    "prompt_tokens": 1355,
+    "completion_tokens": 218,
+    "measured": true
+  },
+  "neurons_spent": 13.2,
+  "budget": {
+    "day": "2026-11-11",
+    "used": 13,
+    "cap": 4500
+  },
+  "evidence": "EXECUTION-VERIFIED run; summary content is model output, unverified",
+  "summary": "Here are 5 key points about the main purpose and rules of this contract excerpt:\n\n* The main purpose of this contract, known as Contract 000, is to establish the foundation for building and maintaining a shared repository of code and data.\n* The contract outlines a set of rules and procedures for participants to follow, including the creation of \"Mirroring Children\" that mirror the main repository, and the development of a shared Library that contains sub-libraries for registries, matrices, indices, codices, logics, algorithms, and formulas.\n* The contract requires participants to follow a specific sequence of steps, including inventorying and populating the main Repository's Code Library, and then populating their own personal Library's sub-branches.\n* Participants must also collaborate on their differences in the sub-libraries by contributing both collections into one whole, proposed as branch \"library-shared\".\n* The contract is recursive, with participants repeating the process of inventorying and populating the shared Library, and debating and refining Algorithm 000, until a new contract (Contract 001) can begin."
+}
