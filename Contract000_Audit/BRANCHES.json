@@ -1,0 +1,45 @@
+{
+  "schema": "contract000.branch-map.v1",
+  "repository": "AGI144348Outlook/claude-repo-creation-test",
+  "source_snapshot_date": "2026-11-15",
+  "maintenance_branch": "main",
+  "excluded_root": "Contract000_Audit",
+  "branches": [
+    {
+      "id": 0,
+      "name": "bot-claude-runs",
+      "folder": "bot-claude-runs",
+      "source_commit": "185a4c0350f772ab201cd6964ad6a80ba7ecbfbe",
+      "source_tree": "185a4c0350f772ab201cd6964ad6a80ba7ecbfbe",
+      "entry": "bot-claude-runs/protocols/Contract_ReadMe/Contract000_readme.md",
+      "next_branch_id": 1
+    },
+    {
+      "id": 1,
+      "name": "claude/github-claude-code-connection-98qkbx",
+      "folder": "claude%2Fgithub-claude-code-connection-98qkbx",
+      "source_commit": "484124dd19c4784fcaba5953e23c6c3dbb254577",
+      "source_tree": "484124dd19c4784fcaba5953e23c6c3dbb254577",
+      "entry": "claude%2Fgithub-claude-code-connection-98qkbx/protocols/Contract_ReadMe/Contract000_readme.md",
+      "next_branch_id": 2
+    },
+    {
+      "id": 2,
+      "name": "echo-upstream-mirror",
+      "folder": "echo-upstream-mirror",
+      "source_commit": "f9059d1ed6f19f907b9e26e7c5b418d160ebac64",
+      "source_tree": "f9059d1ed6f19f907b9e26e7c5b418d160ebac64",
+      "entry": "echo-upstream-mirror/protocols/Contract_ReadMe/Contract000_readme.md",
+      "next_branch_id": 3
+    },
+    {
+      "id": 3,
+      "name": "main",
+      "folder": "main",
+      "source_commit": "20ea33ee0868a175d95b12d32a8a6cc9bf005ae6",
+      "source_tree": "20ea33ee0868a175d95b12d32a8a6cc9bf005ae6",
+      "entry": "main/protocols/Contract_ReadMe/Contract000_readme.md",
+      "next_branch_id": 0
+    }
+  ]
+}
