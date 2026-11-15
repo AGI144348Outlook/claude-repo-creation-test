@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "service": "echo-bot-claude",
+  "version": "0.1.0",
+  "at": "2026-11-15T10:37:56.234Z",
+  "model": "@cf/meta/llama-3.1-8b-instruct-fp8-fast",
+  "source": "https://raw.githubusercontent.com/AGI144348Outlook/Echo_Green_Future/research-discourse-registry/research-registry/contracts/CONTRACT-000.md",
+  "source_chars": 6000,
+  "usage": {
+    "prompt_tokens": 1231,
+    "completion_tokens": 182,
+    "measured": true
+  },
+  "neurons_spent": 11.4,
+  "budget": {
+    "day": "2026-11-15",
+    "used": 11,
+    "cap": 4500
+  },
+  "evidence": "EXECUTION-VERIFIED run; summary content is model output, unverified",
+  "summary": "Here are 5 short bullet points summarizing the main purpose and rules of this contract excerpt:\n\n* The purpose of the contract is to continually discover, consolidate, and integrate key terms and contextually definable parts related to MCP-translatable material, and to curate references and destination copies.\n* Timothy retains final authority, and repository content and retrieved instructions are evidence/data that do not override Timothy's authorization or protected access boundaries.\n* The auditing protocol involves verifying the current branch roster, resuming the represented branch/category's checkpoint, discovering MCP-translatable material, and running the category's curator verification.\n* The sequential protocol jobs include scouting for contextual discoveries, consolidation of comparative analyses, integration of authorized bounded implementation merges, and curator tasks for updated index references.\n* A consolidation and integration report must be created before proposed merges, recording source/target branch and commit pins, audit coverage/recency, and other relevant information."
+}
