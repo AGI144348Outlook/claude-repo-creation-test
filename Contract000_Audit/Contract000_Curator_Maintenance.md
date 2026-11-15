@@ -25,7 +25,7 @@ The following are literal entry paths relative to Contract000_Audit/. Resolve th
 | Branch | Entry directory | Next branch ID |
 |---|---|---|
 | `bot-claude-runs` | [start](bot-claude-runs/protocols/Contract_ReadMe/Contract000_readme.md) | 1 |
-| `claude/github-claude-code-connection-98qkbx` | [start](claude%2Fgithub-claude-code-connection-98qkbx/protocols/Contract_ReadMe/Contract000_readme.md) | 2 |
+| `claude/github-claude-code-connection-98qkbx` | [start](claude%252Fgithub-claude-code-connection-98qkbx/protocols/Contract_ReadMe/Contract000_readme.md) | 2 |
 | `echo-upstream-mirror` | [start](echo-upstream-mirror/protocols/Contract_ReadMe/Contract000_readme.md) | 3 |
 | `main` | [start](main/protocols/Contract_ReadMe/Contract000_readme.md) | 0 |
 
