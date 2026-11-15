@@ -1,15 +1,26 @@
 {
   "schema": "contract000.audit-checkpoint.v1",
   "repository": "AGI144348Outlook/claude-repo-creation-test",
-  "represented_branch": "RESOLVE_FROM_PARENT_BRANCH_FOLDER",
+  "represented_branch": "bot-claude-runs",
   "category": "protocols",
-  "phase": "VERIFY_DIRECTORY",
-  "directory_status": "GENERATED_FROM_PINNED_GITHUB_TREES",
-  "content_status": "NOT_AUDITED",
-  "last_completed_file": null,
-  "within_file_position": null,
+  "phase": "READ_SOURCE_FILES",
+  "directory_status": "PINNED_TREES_VERIFIED_CURRENT_DRIFT_PENDING_HEADER_REFRESH",
+  "content_status": "PARTIAL",
+  "last_completed_file": "RUN-LOG.md",
+  "within_file_position": "EOF",
   "findings": [],
-  "blockers": [],
+  "blockers": [
+    "Current bot-claude-runs tip adds runs/2026-11-15/2026-11-15T103758Z.json and directory, modifies RUN-LOG.md and WATCH-STATE.json; 48 category audit headers not refreshed coherently in this bounded visit.",
+    "Claude branch tip could not be resolved by direct branch URL; pinned tree was retrieved.",
+    "Archive and binary contents on other branches remain unread; no repository-wide reading claim."
+  ],
   "next_directory": "../../skills/Contract_ReadMe/Contract000_readme.md",
-  "updated": "2026-11-15"
+  "updated": "2026-11-15",
+  "source_commit": "185a4c0350f772ab201cd6964ad6a80ba7ecbfbe",
+  "source_tip_observed": "63da4eb5a31b936f52eb18d0db1a7f61a80258bc",
+  "last_completed_blob": "ca1fa921fedd86c92b4a3731c5d98f567fbdfec1",
+  "next_file": "WATCH-STATE.json",
+  "next_file_source_commit": "185a4c0350f772ab201cd6964ad6a80ba7ecbfbe",
+  "verification_note": "Four pinned recursive trees retrieved without truncation; list-only branch/path membership matches 71 pinned entries. Current source drift on bot-claude-runs, maintenance-only drift on echo-upstream-mirror. RUN-LOG.md read in full at pinned blob; historic HTTP/status labels are source claims, not independently verified.",
+  "last_run_id": "automation-turn-11-2026-11-15T09:03:57-06:00 (scheduler UUID unavailable)"
 }
