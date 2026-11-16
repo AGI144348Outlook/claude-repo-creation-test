@@ -5,11 +5,11 @@
   "category_index": 0,
   "next_directory": "bot-claude-runs/protocols/Contract_ReadMe/Contract000_readme.md",
   "directory_status": "PINNED_VERIFIED_CURRENT_DRIFT_NOT_YET_REFRESHED",
-  "content_status": "PARTIAL_ONE_FILE_READ",
-  "last_run_id": "automation-turn-11-2026-11-15T09:03:57-06:00 (scheduler UUID unavailable)",
-  "updated": "2026-11-15",
-  "next_file": "WATCH-STATE.json",
+  "content_status": "PARTIAL_TWO_FILES_READ",
+  "last_run_id": "automation-turn-11-2026-11-16T16:56-06:00 (scheduler UUID unavailable)",
+  "updated": "2026-11-16",
+  "next_file": "runs/2026-10-10/2026-10-10T225653Z.json",
   "source_commit": "185a4c0350f772ab201cd6964ad6a80ba7ecbfbe",
   "source_tip_observed": "63da4eb5a31b936f52eb18d0db1a7f61a80258bc",
-  "note": "Four pinned recursive trees match 71 source directory entries; bot branch drift adds Nov 15 run and changes two files. RUN-LOG.md pinned blob ca1fa921 fully read, no protocols finding; next WATCH-STATE.json. Header refresh pending coherent propagation. No tests."
+  "note": "Prior four pinned trees / 71-entry directory verification retained but not freshly re-enumerated (recursive-tree API unavailable). Read pinned WATCH-STATE.json at commit 185a4c0, blob ce5fd57e in full; no protocols discovery. Live WATCH-STATE.json drift observed (blob 99bee55f), not promoted. Next runs/2026-10-10/2026-10-10T225653Z.json; no tests."
 }
