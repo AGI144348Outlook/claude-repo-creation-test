@@ -6,21 +6,22 @@
   "phase": "READ_SOURCE_FILES",
   "directory_status": "PINNED_TREES_VERIFIED_CURRENT_DRIFT_PENDING_HEADER_REFRESH",
   "content_status": "PARTIAL",
-  "last_completed_file": "RUN-LOG.md",
+  "last_completed_file": "WATCH-STATE.json",
   "within_file_position": "EOF",
   "findings": [],
   "blockers": [
     "Current bot-claude-runs tip adds runs/2026-11-15/2026-11-15T103758Z.json and directory, modifies RUN-LOG.md and WATCH-STATE.json; 48 category audit headers not refreshed coherently in this bounded visit.",
     "Claude branch tip could not be resolved by direct branch URL; pinned tree was retrieved.",
-    "Archive and binary contents on other branches remain unread; no repository-wide reading claim."
+    "Archive and binary contents on other branches remain unread; no repository-wide reading claim.",
+    "Full fresh all-branch recursive-tree comparison unavailable via current GitHub connector; earlier pinned verification not independently repeated."
   ],
   "next_directory": "../../skills/Contract_ReadMe/Contract000_readme.md",
-  "updated": "2026-11-15",
+  "updated": "2026-11-16",
   "source_commit": "185a4c0350f772ab201cd6964ad6a80ba7ecbfbe",
   "source_tip_observed": "63da4eb5a31b936f52eb18d0db1a7f61a80258bc",
-  "last_completed_blob": "ca1fa921fedd86c92b4a3731c5d98f567fbdfec1",
-  "next_file": "WATCH-STATE.json",
+  "last_completed_blob": "ce5fd57e7b05b157d2ffde67e26bca24954dd4c7",
+  "next_file": "runs/2026-10-10/2026-10-10T225653Z.json",
   "next_file_source_commit": "185a4c0350f772ab201cd6964ad6a80ba7ecbfbe",
-  "verification_note": "Four pinned recursive trees retrieved without truncation; list-only branch/path membership matches 71 pinned entries. Current source drift on bot-claude-runs, maintenance-only drift on echo-upstream-mirror. RUN-LOG.md read in full at pinned blob; historic HTTP/status labels are source claims, not independently verified.",
-  "last_run_id": "automation-turn-11-2026-11-15T09:03:57-06:00 (scheduler UUID unavailable)"
+  "verification_note": "Prior pinned four-tree inventory verification retained (71 entries), not independently re-enumerated this visit. Fully read WATCH-STATE.json at pinned bot-claude-runs commit 185a4c0 blob ce5fd57e; it records contract and echo_main SHA pointers and seen_at 2026-11-11T01:22:44Z, without verification of external targets. Live bot branch WATCH-STATE.json differs (blob 99bee55f); live source drift remains unresolved. Next pinned run JSON.",
+  "last_run_id": "automation-turn-11-2026-11-16T16:56-06:00 (scheduler UUID unavailable)"
 }
