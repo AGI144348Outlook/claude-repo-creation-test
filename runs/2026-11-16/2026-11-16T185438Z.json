@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "service": "echo-bot-claude",
+  "version": "0.1.0",
+  "at": "2026-11-16T18:54:35.777Z",
+  "model": "@cf/meta/llama-3.1-8b-instruct-fp8-fast",
+  "source": "https://raw.githubusercontent.com/AGI144348Outlook/Echo_Green_Future/research-discourse-registry/research-registry/contracts/CONTRACT-000.md",
+  "source_chars": 6000,
+  "usage": {
+    "prompt_tokens": 1231,
+    "completion_tokens": 184,
+    "measured": true
+  },
+  "neurons_spent": 11.5,
+  "budget": {
+    "day": "2026-11-16",
+    "used": 11,
+    "cap": 4500
+  },
+  "evidence": "EXECUTION-VERIFIED run; summary content is model output, unverified",
+  "summary": "Here are the main purpose and rules of the contract excerpt in 5 short bullet points:\n\n* The main purpose of the contract is to continually discover, consolidate, and integrate MCP-translatable parts and their records, with Timothy retaining final authority.\n* The contract involves maintaining a repository with category records, protocols, skills, and workflows, with each category having its own README file and audit-skills file.\n* The auditing protocol involves verifying the current branch roster, resuming the represented branch's checkpoint, and discovering MCP-translatable material, which is then recorded and verified.\n* The sequential protocol jobs involve scouts, consolidation, integration, and curator tasks, which aim to discover, compare, integrate, and update index references to actual integrated versions.\n* The consolidation and integration report involves creating an issue in the receiving repository, recording source/target branch and commit pins, audit coverage/recency, and proposed merges, before actual implementation."
+}
