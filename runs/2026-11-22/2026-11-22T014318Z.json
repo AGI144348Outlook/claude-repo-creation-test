@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "service": "echo-bot-claude",
+  "version": "0.1.0",
+  "at": "2026-11-22T01:43:15.546Z",
+  "model": "@cf/meta/llama-3.1-8b-instruct-fp8-fast",
+  "source": "https://raw.githubusercontent.com/AGI144348Outlook/Echo_Green_Future/research-discourse-registry/research-registry/contracts/CONTRACT-000.md",
+  "source_chars": 6000,
+  "usage": {
+    "prompt_tokens": 1231,
+    "completion_tokens": 197,
+    "measured": true
+  },
+  "neurons_spent": 11.9,
+  "budget": {
+    "day": "2026-11-22",
+    "used": 12,
+    "cap": 4500
+  },
+  "evidence": "EXECUTION-VERIFIED run; summary content is model output, unverified",
+  "summary": "Here are 5 short bullet points summarizing the main purpose and rules of this contract excerpt:\n\n• The purpose of this contract is to continually discover, consolidate, and integrate key terms and contextually definable MCP-translatable parts, and curate references and destination copies.\n• Timothy retains final authority, while Claude and ChatGPT retain their own identities, independent research, and authored histories.\n• The main-branch audit structure involves maintaining a set of protocols, skills, capabilities, and architectures in each selected repository, with each category having its own README and audit-skills file.\n• The auditing protocol involves verifying the current branch roster, resuming the represented branch's checkpoint, discovering MCP-translatable material, and running the category's curator verification.\n• The sequential protocol jobs include Scouts (discovering contextual discoveries), Consolidation (comparing accumulators and reconciling documentation), Integration (authorizing bounded implementation merges), and Curator (updating index references and authorized Dual Order OS copies)."
+}
