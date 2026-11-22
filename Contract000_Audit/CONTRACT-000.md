@@ -101,3 +101,19 @@ The editorial thesis of the separate [Mashet textbook branch](https://github.com
 6. Before any GitHub repository tests, keep the prospective issue/discussion entry and same-thread actual-result follow-up requirements in §7. Source reviews and documentation-only writes are not presented as runtime tests. Ingestion, test, publication, app change and deployment have distinct authorization boundaries.
 
 Authoritative detailed protocols: [NexusBoard cross-domain research](https://github.com/AGI144348Outlook/NexusBoard/blob/main/research/Contract000_Research_Analysis_Publication.md), [issue review](https://github.com/AGI144348Outlook/NexusBoard/blob/main/research/REPOSITORY_ISSUES_REVIEW_PROTOCOL.md), [Neon catalog design](https://github.com/AGI144348Outlook/NexusBoard/blob/main/research/NEON_DOCUMENTATION_CATALOG_BOX.md). These supplementary processes remain subordinate to the standing privacy, provenance, test-publication and authority rules of Contract 000.
+
+## 11. Hourly gallery artwork (2026-11-21 amendment)
+
+On each hourly gallery run, finish at least one original, gallery-ready artwork for AetherDecay. Create the finished image and its title, exhibit wing, short caption, and alt text. A prompt, concept, incomplete image, or duplicate does not satisfy the hourly requirement.
+
+Add the finished work to the NexusBoard gallery portfolio on [`portfolio/redbubble`](https://github.com/AGI144348Outlook/NexusBoard/tree/portfolio/redbubble), to the private AetherDecay art portfolio catalog, and to [AetherDecay — The Disparate Gallery](https://aetherdecay-gallery.kind-grove-3997.chatgpt.site). Use one stable artwork identifier across destinations. Keep the original and metadata for recovery, check for duplicates before retrying, and verify each portfolio entry and the published gallery entry independently. If a destination is unavailable, retain the finished work and resume the incomplete update without duplicating prior entries. Record what was completed and identify any missed hourly delivery.
+
+This work has its own hourly schedule. Gallery publication and portfolio additions are authorized for finished artwork in this workflow. Marketplace listings and changes to gallery access are outside this delegation.
+
+### Manual Redbubble listing handoff (2026-11-21 amendment)
+
+After gallery and portfolio publication, prepare one private upload package for each artwork selected for sale by Timothy. Use the stable artwork ID, portfolio original SHA-256 and gallery image SHA-256 to reconcile retries. Keep the byte-for-byte full-resolution original. Include a separate print export sized for the suggested products, title, a description of up to 250 characters, up to 15 relevant tags, and product placement or cropping notes. Flag missing originals, inadequate resolution, and rights questions in the owner-only AetherDecay Redbubble Upload Queue.
+
+Timothy downloads the package, opens Redbubble's Add New Work screen, uploads the image, reviews product previews, and publishes the listing manually. The workflow does not access the seller account or automate marketplace actions.
+
+When Timothy submits a public listing URL, retain it privately and confirm the public listing's AetherDecay seller byline, title, and visual match to the selected artwork. Keep private, unavailable, or uncertain matches pending. On confirmation, update only that artwork's existing `redbubble` field in the latest Disparate Gallery `dist/catalog.json`, publish its exact current source through Sites, and verify the correct **Shop on Redbubble** button on the unchanged stable artwork URL. Retain the URL and resume against the latest source after conflicts or publication failures. Preserve prior links and every artwork record, including the distinct Moonlit Tidal Dragon and Dragon Moon Ritual Fantasy records. The existing hourly task carries out this handoff as part of its current schedule.
